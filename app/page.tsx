@@ -1,9 +1,15 @@
-import Scene from "@/components/scene";
+"use client";
+import Box from "@/components/box";
+import { Canvas } from "@react-three/fiber";
 
 export default function Home() {
   return (
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Scene/>
-      </main>
+    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <Canvas shadows>
+        <mesh scale={1.5}>
+          <Box />
+        </mesh>
+      </Canvas>
+    </section>
   );
 }
