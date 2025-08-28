@@ -4,6 +4,8 @@ import clsx from "clsx";
 import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -38,9 +40,9 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-            <main>
-              {children}
-            </main>
+            <Navbar/>
+            {children}
+            <Footer className="fixed left-0 bottom-0"/>
         </Providers>
       </body>
     </html>
