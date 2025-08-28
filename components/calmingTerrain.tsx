@@ -1,6 +1,7 @@
 import { useMemo, useRef } from "react";
 import { Color, Mesh, ShaderMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 import vertexShader from "../shaders/calmingTerrain/vertexShader.vert";
 import fragmentShader from "../shaders/calmingTerrain/fragmentShader.frag";
@@ -39,6 +40,7 @@ export default function CalmingTerrain({}) {
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}
         uniforms={uniforms}
+        side={THREE.DoubleSide}
       />
     </mesh>
   );

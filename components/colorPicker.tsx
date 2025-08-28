@@ -6,11 +6,13 @@ import { Input } from "@heroui/input";
 type ColorPickerProps = {
   value?: string;
   onChange?: (color: string) => void;
+  className?: string;
 };
 
 export default function ColorPicker({
   value = "#ff0000",
   onChange,
+  className
 }: ColorPickerProps) {
   const [color, setColor] = useState(value);
 
@@ -25,6 +27,7 @@ export default function ColorPicker({
       label="Pick a color"
       value={color}
       onChange={(e) => handleChange(e.target.value)}
+      className={className}
     />
   );
 }

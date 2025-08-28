@@ -6,10 +6,6 @@ import CalmingTerrain from "./calmingTerrain";
 
 export default function MainPageScene() {
   return (
-      <Canvas shadows camera={{ position: [-1.5, 1.5, 1], fov: 50 }}>
-        <CalmingTerrain />
-        <axesHelper />
-        <OrbitControls />
-      </Canvas>
+      
   );
 }
