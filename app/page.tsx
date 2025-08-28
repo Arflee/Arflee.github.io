@@ -1,15 +1,13 @@
-"use client";
-import Box from "@/components/box";
-import { Canvas } from "@react-three/fiber";
+import ColorPicker from "@/components/colorPicker";
+import MainPageScene from "@/components/mainPageScene";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <Canvas shadows>
-        <mesh scale={1.5}>
-          <Box />
-        </mesh>
-      </Canvas>
+    <section className="flex flex-row items-center justify-center min-h-screen py-2">
+      <ColorPicker />
+      <div className="flex items-center justify-center">
+        <MainPageScene />
+      </div>
     </section>
   );
 }
