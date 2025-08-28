@@ -1,33 +1,38 @@
 "use client";
 
 import LennaImage from "@/components/lennaImage";
+import { postProcessingEffects } from "@/config/post-processingEffects";
 import { RadioGroup, Radio } from "@heroui/radio";
 import { Canvas } from "@react-three/fiber";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function Page() {
-  const [type, setType] = useState("");
+  const [shaderType, setShader] = useState("plainTexture");
 
   return (
     <main>
-      <div className="flex p-4">
-        <div className="w-1/2">
+      <div className="flex flex-col p-4 md:flex-row">
+        <div className="w-full md:w-1/2">
           <RadioGroup
-            onChange={(val) => setType(val.target.value)}
-            value={type}
+            onChange={(radioBtn) => setShader(radioBtn.target.value)}
+            value={shaderType}
           >
-            <Radio value="buenos-aires">Buenos Aires</Radio>
-            {type === "buenos-aires" && <p>{type}</p>}
-            <Radio value="sydney">Sydney</Radio>
-            {type === "sydney" && <p>{type}</p>}
-            <Radio value="san-francisco">San Francisco</Radio>
-            {type === "san-francisco" && <p>{type}</p>}
+            {postProcessingEffects.map((effect, index) => (
+              <React.Fragment key={index}>
+                <Radio value={effect.fragmentShader}>
+                  {effect.radioButtonLabel}
+                </Radio>
+                {shaderType === effect.fragmentShader && <p>Settings panel appears...</p>}
+              </React.Fragment>
+            ))}
           </RadioGroup>
         </div>
-        <div className="w-[512px] h-[512px] flex items-center justify-center">
-          <Canvas orthographic camera={{ position: [0, 0, 1] }}>
-            <LennaImage />
-          </Canvas>
+        <div className="w-1/2 flex flex-col items-center justify-center">
+          <div className="w-[512px] h-[512px]">
+            <Canvas orthographic camera={{ position: [0, 0, 1] }}>
+              <LennaImage selectedShader={shaderType}/>
+            </Canvas>
+          </div>
         </div>
       </div>
     </main>
