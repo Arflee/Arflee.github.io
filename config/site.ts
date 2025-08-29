@@ -15,9 +15,18 @@ export const siteConfig = {
       href: "/3d",
     }
   ],
-  links: {
-    github: "https://github.com/arflee",
-    linkedin: "https://www.linkedin.com/in/arflee/",
-    mail: "mailto:m.sushinsky@gmail.com",
-  },
+  contacts: [
+    {
+      href: "https://github.com/arflee",
+      icon: "/github-mark.svg",
+    },
+    {
+      href: "https://www.linkedin.com/in/arflee/",
+      icon: "/linkedin.svg",
+    },
+    {
+      href: "mailto:m.sushinsky@gmail.com",
+      icon: "/email.svg",
+    }
+  ],
 };

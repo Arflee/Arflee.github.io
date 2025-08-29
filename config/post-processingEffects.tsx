@@ -1,38 +1,60 @@
-export const postProcessingEffects = [
+import vertex from "../shaders/post-processing/plainTexture.vert";
+import plainTexture from "../shaders/post-processing/plainTexture.frag";
+import boxBlur from "../shaders/post-processing/boxBlur.frag";
+import gaussianBlur from "../shaders/post-processing/gaussianBlur.frag";
+
+type PostProcessingEffect = {
+  id: string;
+  radioButtonLabel: string;
+  shader?: string;
+};
+
+export const textureVertexShader = vertex;
+
+export const fallbackShader = plainTexture;
+
+export const postProcessingEffects: PostProcessingEffect[] = [
   {
-    fragmentShader: "boxBlur",
+    id: "none",
+    radioButtonLabel: "No effect",
+    shader: plainTexture,
+  },
+  {
+    id: "boxBlur",
     radioButtonLabel: "Box Blur",
+    shader: boxBlur,
   },
   {
-    fragmentShader: "gaussianBlur",
+    id: "gaussianBlur",
     radioButtonLabel: "Gaussian Blur",
+    shader: gaussianBlur,
   },
   {
-    fragmentShader: "grayscale",
+    id: "grayscale",
     radioButtonLabel: "Grayscale",
   },
   {
-    fragmentShader: "invert",
+    id: "invert",
     radioButtonLabel: "Invert",
   },
   {
-    fragmentShader: "sepia",
+    id: "sepia",
     radioButtonLabel: "Sepia",
   },
   {
-    fragmentShader: "sharpenFilter",
+    id: "sharpenFilter",
     radioButtonLabel: "Sharpen Filter",
   },
   {
-    fragmentShader: "sobelFilter",
+    id: "sobelFilter",
     radioButtonLabel: "Sobel Filter",
   },
   {
-    fragmentShader: "vignette",
+    id: "vignette",
     radioButtonLabel: "Vignette",
   },
   {
-    fragmentShader: "pixelateFilter",
+    id: "pixelateFilter",
     radioButtonLabel: "Pixelate Filter",
-  }
+  },
 ];

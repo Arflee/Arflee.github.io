@@ -7,18 +7,15 @@ import { Canvas } from "@react-three/fiber";
 
 export default function Page() {
   return (
-    <section className="flex w-screen h-screen overflow-hidden"> {/* overflow-hidden removes scroll */}
-      {/* Left half */}
-      <div className="w-1/2 flex justify-center items-start"> {/* items-start avoids vertical overflow */}
+    <section className="flex h-[66vh]">
+      <div className="w-1/2 flex justify-center items-start">
         <ColorPicker className="w-3/4" />
       </div>
 
-      {/* Right half */}
       <div className="w-1/2 flex justify-center items-start">
         <div className="w-full h-full">
           <Canvas
             shadows
-            className="w-full h-full"
             camera={{ position: [-1.5, 1.5, 1], fov: 60 }}
           >
             <CalmingTerrain />

@@ -14,8 +14,6 @@ export default function LennaImage({
 }) {
   const { viewport } = useThree();
   const texture = useLoader(TextureLoader, "/Lenna.png");
-  const fragmentShader =
-    shaders[selectedShader as keyof typeof shaders] ?? shaders.plainTexture;
 
   const material = useMemo(
     () =>
@@ -24,9 +22,9 @@ export default function LennaImage({
           uTexture: { value: texture },
         },
         vertexShader: shaders.vertex,
-        fragmentShader,
+        fragmentShader: selectedShader,
       }),
-    [fragmentShader]
+    [selectedShader]
   );
   return (
     <>
