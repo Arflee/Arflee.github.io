@@ -1,7 +1,14 @@
+"use client";
+
+import PerlinBackground from "@/components/perlinBackground";
+import { Canvas } from "@react-three/fiber";
+
 export default function Home() {
   return (
-    <main className="flex flex-row items-center justify-center min-h-screen py-2">
-      <h1>Welcome to Next.js!</h1>
-    </main>
+    <section className="flex grow relative w-full min-h-screen overflow-hidden">
+      <Canvas className="pt-16" orthographic camera={{ position: [0, 0, 1] }}>
+        <PerlinBackground />
+      </Canvas>
+    </section>
   );
 }

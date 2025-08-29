@@ -5,7 +5,6 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -35,15 +34,13 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "text-foreground bg-background font-sans antialiased",
+          "flex flex-col min-h-screen text-foreground bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          <div className="flex flex-col">
             <Navbar />
-            <main>{children}</main>
-          </div>
+            <main className="flex grow">{children}</main>
         </Providers>
       </body>
     </html>
