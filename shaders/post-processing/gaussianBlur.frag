@@ -1,12 +1,15 @@
+precision highp float;
+
 uniform sampler2D uTexture;
 
 varying vec2 vUv;
 
 void main() {
+    // TODO add intensity
+
     vec2 texel = 1.0 / vec2(256.0, 256.0);
     vec3 color = vec3(0.0);
 
-    // approximate Gaussian weights for radius 3
     float kernel[7];
     kernel[0] = 0.07027;
     kernel[1] = 0.1316;

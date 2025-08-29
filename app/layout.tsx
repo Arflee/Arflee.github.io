@@ -43,7 +43,6 @@ export default function RootLayout({
           <div className="flex flex-col">
             <Navbar />
             <main>{children}</main>
-            <Footer/>
           </div>
         </Providers>
       </body>

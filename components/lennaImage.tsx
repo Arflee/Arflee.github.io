@@ -1,10 +1,10 @@
 "use client";
 
+import { textureVertexShader } from "@/config/post-processingEffects";
 import { useThree, useLoader } from "@react-three/fiber";
 import { OrthographicCamera } from "@react-three/drei";
-import { useMemo, useRef } from "react";
-import { Mesh, TextureLoader } from "three";
-import { shaders } from "@/shaders";
+import { TextureLoader } from "three";
+import { useMemo } from "react";
 import * as THREE from "three";
 
 export default function LennaImage({
@@ -21,7 +21,7 @@ export default function LennaImage({
         uniforms: {
           uTexture: { value: texture },
         },
-        vertexShader: shaders.vertex,
+        vertexShader: textureVertexShader,
         fragmentShader: selectedShader,
       }),
     [selectedShader]
