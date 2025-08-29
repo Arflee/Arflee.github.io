@@ -5,7 +5,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { OrthographicCamera } from "@react-three/drei";
 
-import perlinShader from "@/shaders/background/perlin.frag";
+import perlinShader from "@/shaders/backgrounds/perlin.frag";
 import vertexShader from "@/shaders/post-processing/plainTexture.vert";
 
 export default function PerlinBackground() {

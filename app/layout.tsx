@@ -5,6 +5,8 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import Navbar from "@/components/navbar";
+import BackgroundCanvas from "@/components/backgroundCanvas";
+import PerlinBackground from "@/components/perlinBackground";
 
 export const metadata: Metadata = {
   title: {
@@ -34,13 +36,16 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "flex flex-col min-h-screen text-foreground bg-background font-sans antialiased",
+          "flex flex-col min-h-screen text-foreground bg-background font-sans antialiased ml-8",
           fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-            <Navbar />
-            <main className="flex grow">{children}</main>
+          <Navbar />
+          <BackgroundCanvas>
+            <PerlinBackground />
+          </BackgroundCanvas>
+          <main className="flex grow mt-20">{children}</main>
         </Providers>
       </body>
     </html>

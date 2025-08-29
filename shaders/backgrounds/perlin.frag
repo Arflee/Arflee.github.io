@@ -55,12 +55,12 @@ void main() {
     float f = fbm(uv + r + uTime * 0.1);
 
     // Create colorful gradients from noise
-    vec3 col = mix(vec3(0.1, 0.3, 0.6),
-                   vec3(0.8, 0.2, 0.5),
+    vec3 col = mix(vec3(0.3, 0.5, 0.8),
+                   vec3(1.0, 0.4, 0.7),
                    f);
 
     col = mix(col,
-              vec3(0.2, 0.8, 0.3),
+              vec3(0.4, 1.0, 0.5),
               r.x * r.y);
 
     // Apply soft blur-like effect by mixing with smoothed version

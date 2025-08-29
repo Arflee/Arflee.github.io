@@ -1,6 +1,9 @@
 "use client";
 
-import { fallbackShader, postProcessingEffects } from "@/config/post-processingEffects";
+import {
+  fallbackShader,
+  postProcessingEffects,
+} from "@/config/post-processingEffects";
 import { RadioGroup, Radio } from "@heroui/radio";
 import LennaImage from "@/components/lennaImage";
 import { Canvas } from "@react-three/fiber";
@@ -8,12 +11,12 @@ import React, { useState } from "react";
 
 export default function Page() {
   const [shaderType, setShader] = useState("none");
-  const selectedEffect = postProcessingEffects.find(e => e.id === shaderType);
+  const selectedEffect = postProcessingEffects.find((e) => e.id === shaderType);
   const fragmentShader = selectedEffect?.shader ?? fallbackShader;
-  
+
   return (
-    <main>
-      <div className="flex flex-col p-4 md:flex-row">
+    <>
+      <div className="flex flex-col p-4 md:flex-row w-full">
         <div className="w-full md:w-1/2">
           <RadioGroup
             onChange={(radioBtn) => setShader(radioBtn.target.value)}
@@ -35,6 +38,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </main>
+    </>
   );
 }
