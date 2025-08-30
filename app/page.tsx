@@ -2,8 +2,10 @@
 
 export default function Home() {
   return (
-    <h1>
+    <section className="flex z-10">
+      <h1>
       Hello!
-    </h1>
+      </h1>
+    </section>
   );
 }

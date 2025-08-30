@@ -10,10 +10,14 @@ import sobelFilter from "../shaders/post-processing/sobelFilter.frag";
 import vignette from "../shaders/post-processing/vignette.frag";
 import pixelateFilter from "../shaders/post-processing/pixelateFilter.frag";
 
-type PostProcessingEffect = {
+import BoxBlurSettings from "@/components/shaderSettings/boxBlurSettings";
+
+export type PostProcessingEffect = {
   id: string;
   radioButtonLabel: string;
   shader?: string;
+  uniforms?: Record<string, any>;
+  settingsPanel?: React.FC<{ uniforms: any; setUniform: (key: string, value: any) => void }>;
 };
 
 export const textureVertexShader = vertex;
@@ -30,6 +34,10 @@ export const postProcessingEffects: PostProcessingEffect[] = [
     id: "boxBlur",
     radioButtonLabel: "Box Blur",
     shader: boxBlur,
+    uniforms: {
+      uIntensity: { value: 2.0 },
+    },
+    settingsPanel: BoxBlurSettings,
   },
   {
     id: "gaussianBlur",

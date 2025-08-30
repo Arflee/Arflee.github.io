@@ -9,8 +9,10 @@ import * as THREE from "three";
 
 export default function LennaImage({
   selectedShader,
+  uniforms
 }: {
   selectedShader: string;
+  uniforms?: Record<string, any>;
 }) {
   const { viewport } = useThree();
   const texture = useLoader(TextureLoader, "/Lenna.png");
@@ -20,11 +22,12 @@ export default function LennaImage({
       new THREE.ShaderMaterial({
         uniforms: {
           uTexture: { value: texture },
+          ...uniforms
         },
         vertexShader: textureVertexShader,
         fragmentShader: selectedShader,
       }),
-    [selectedShader]
+    [selectedShader, uniforms]
   );
   return (
     <>
