@@ -1,17 +1,17 @@
 precision highp float;
 
 uniform sampler2D uTexture;
+uniform float uIntensity;
+uniform vec3 uRgbWeights;
 
 varying vec2 vUv;
 
 void main() {
-    // TODO add different weights for r, g, b
-    // TODO add intensity
-
     vec4 tex = texture2D(uTexture, vUv);
 
-    float lum = dot(tex.rgb, vec3(0.2126, 0.7152, 0.0722));
+    float lum = dot(tex.rgb, uRgbWeights);
     vec3 gray = vec3(lum);
+    vec3 finalColor = mix(tex.rgb, gray, uIntensity);
 
-    gl_FragColor = vec4(gray, tex.a);
+    gl_FragColor = vec4(finalColor, tex.a);
 }

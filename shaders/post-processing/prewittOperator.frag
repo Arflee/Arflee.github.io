@@ -2,7 +2,6 @@ precision highp float;
 
 uniform sampler2D uTexture;
 uniform float uIntensity;
-
 varying vec2 vUv;
 
 void main() {
@@ -17,10 +16,9 @@ void main() {
     float b  = texture2D(uTexture, vUv + vec2(0.0,      -texel.y)).r;
     float br = texture2D(uTexture, vUv + vec2(texel.x,  -texel.y)).r;
 
-    float gx = -tl - 2.0*l - bl + tr + 2.0*r + br;
-    float gy = -tl - 2.0*t - tr + bl + 2.0*b + br;
+    float gx = -tl - l - bl + tr + r + br;
+    float gy = -tl - t - tr + bl + b + br;
 
     float edge = length(vec2(gx, gy));
-
     gl_FragColor = vec4(vec3(edge), 1.0);
 }

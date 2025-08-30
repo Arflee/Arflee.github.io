@@ -29,7 +29,7 @@ export default function Page() {
 
   return (
     <div className="flex flex-col p-4 md:flex-row w-full">
-      <div className="w-full md:w-1/2">
+      <div className="w-full md:w-1/2 mr-4">
         <RadioGroup
           onChange={(radioBtn) => setShader(radioBtn.target.value)}
           value={shaderType}
@@ -43,7 +43,7 @@ export default function Page() {
           ))}
         </RadioGroup>
       </div>
-      <div className="w-1/2 flex flex-col items-center justify-center">
+      <div className="w-1/2 flex flex-col items-center min-h-[512px] min-w-[512px]">
         <div className="w-[512px] h-[512px]">
           <Canvas orthographic camera={{ position: [0, 0, 1] }}>
             <LennaImage

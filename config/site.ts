@@ -7,7 +7,7 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Post processing",
+      label: "Post-processing",
       href: "/post-processing",
     },
     {

@@ -2,7 +2,7 @@
 
 import { Slider } from "@heroui/slider";
 
-export default function BoxBlurSettings({
+export default function SobelFilterSettings({
   uniforms,
   setUniform,
 }: {
@@ -12,9 +12,9 @@ export default function BoxBlurSettings({
   return (
       <Slider
         size="lg"
-        label="Blur Intensity"
+        label="Edge scale"
         step={0.1}
-        minValue={0.0}
+        minValue={0.1}
         maxValue={100.0}
         value={uniforms.uIntensity?.value || 0.0}
         onChange={(sliderValue) => {setUniform("uIntensity", sliderValue);}}

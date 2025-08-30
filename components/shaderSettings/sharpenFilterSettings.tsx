@@ -2,7 +2,7 @@
 
 import { Slider } from "@heroui/slider";
 
-export default function BoxBlurSettings({
+export default function SharpenFilterSettings({
   uniforms,
   setUniform,
 }: {
@@ -12,7 +12,7 @@ export default function BoxBlurSettings({
   return (
       <Slider
         size="lg"
-        label="Blur Intensity"
+        label="Sarpen Intensity"
         step={0.1}
         minValue={0.0}
         maxValue={100.0}

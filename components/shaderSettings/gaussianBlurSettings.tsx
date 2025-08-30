@@ -2,7 +2,7 @@
 
 import { Slider } from "@heroui/slider";
 
-export default function BoxBlurSettings({
+export default function GaussianBlurSettings({
   uniforms,
   setUniform,
 }: {

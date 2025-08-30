@@ -1,13 +1,12 @@
 precision highp float;
 
 uniform sampler2D uTexture;
+uniform float uIntensity;
 
 varying vec2 vUv;
 
 void main() {
-    // TODO add intensity
-
-    vec2 texel = 1.0 / vec2(256.0, 256.0);
+    vec2 texel = 1.0 / vec2(512.0, 512.0);
     vec3 color = vec3(0.0);
 
     float kernel[7];
@@ -20,7 +19,10 @@ void main() {
     kernel[6] = 0.07027;
 
     for (int i = -3; i <= 3; i++) {
-        color += texture2D(uTexture, vUv + vec2(float(i) * texel.x, 0.0)).rgb * kernel[i + 3];
+        for (int j = -3; j <= 3; j++) {
+            vec2 offset = vec2(float(i) * texel.x * uIntensity, float(j) * texel.y * uIntensity);
+            color += texture2D(uTexture, vUv + offset).rgb * kernel[i + 3] * kernel[j + 3];
+        }
     }
 
     gl_FragColor = vec4(color, 1.0);

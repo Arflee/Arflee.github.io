@@ -2,7 +2,7 @@
 
 import { Slider } from "@heroui/slider";
 
-export default function BoxBlurSettings({
+export default function SepiaSettings({
   uniforms,
   setUniform,
 }: {
@@ -12,10 +12,10 @@ export default function BoxBlurSettings({
   return (
       <Slider
         size="lg"
-        label="Blur Intensity"
-        step={0.1}
+        label="Sepia Intensity"
+        step={0.01}
         minValue={0.0}
-        maxValue={100.0}
+        maxValue={1.0}
         value={uniforms.uIntensity?.value || 0.0}
         onChange={(sliderValue) => {setUniform("uIntensity", sliderValue);}}
       />
